@@ -1,12 +1,25 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import { Provider as JotaiProvider } from "jotai";
-import { Example } from "./Example";
+import { atom, Provider, useAtom } from "jotai";
+
+export const countAtom = atom(0);
+
+export function Example() {
+  const [count, setCount] = useAtom(countAtom);
+
+  return (
+    <div>
+      {count}
+      <button onClick={() => setCount((c) => c + 1)}>one up</button>
+    </div>
+  );
+}
+
 
 function App() {
   return (
-    <JotaiProvider>
+    <Provider>
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
@@ -24,7 +37,7 @@ function App() {
         </header>
         <Example />
       </div>
-    </JotaiProvider>
+    </Provider>
   );
 }
 
