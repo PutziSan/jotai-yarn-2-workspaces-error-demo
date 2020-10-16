@@ -1,0 +1,10 @@
+{
+  "name": "jotai-example-error",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "prettier": "^2.1.2"
+  }
+}
